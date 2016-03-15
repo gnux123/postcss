@@ -1,0 +1,48 @@
+@import "var";
+
+@define-mixin autoCenter $range {
+	margin: 0 $range;
+}
+
+@define-extend autoShow {
+	font-size: 20px;
+	height: 50px;
+}
+
+body {
+	background: #ccc;
+	display: flex;
+
+	@extend autoShow;
+}
+
+.cssnext {
+  color: color(red alpha(-10%));
+
+  @extend autoShow;
+}
+
+@keyframes auto {
+	from {
+		transform:  translate3d(0,0,0);
+	}
+	to {
+		transform: translate3d(0, 100px, 0);
+	}
+}
+
+.precss {
+  @if 3 < 5 {
+    background: $primary;
+	transform: translate3d(0,0,0);
+  }
+  @else {
+    background: blue;
+  }
+
+	h1 {
+		width: 100%;
+		height: 300px;
+		@mixin autoCenter 10px;
+  	}
+}
